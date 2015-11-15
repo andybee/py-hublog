@@ -4,6 +4,8 @@ import requests
 from BeautifulSoup import BeautifulSoup
 import re
 import time
+import sys
+import os
 
 # Simple script to grab the downstream table from the web interface for a Virgin Media Super Hub
 # and log against date/time.
@@ -51,6 +53,11 @@ def write_values_to_file(html, filename):
 
 	return html
 
-filename = time.strftime('%Y%m%d-%H%M%S') + '.html'
-html = write_values_to_file(None, filename)
+if len(sys.argv) < 2:
+	print 'Missing path argument'
+	exit()
+
+path = sys.argv[1]
+filename =  time.strftime('%Y%m%d-%H%M%S') + '.html'
+html = write_values_to_file(None, os.path.join(path, filename))
 reset_all(html)
