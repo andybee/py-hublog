@@ -10,7 +10,7 @@ import os
 # Simple script to grab the downstream table from the web interface for a Virgin Media Super Hub
 # and log against date/time.
 #
-# The script grabs the table then resets the counters, useful for creating a cronjab to collate
+# The script grabs the table then resets the counters, useful for creating a cron job to collate
 # states on error rates, SnR etc.
 #
 # HTML is passed from function to function to minimise the number of calls made to the router.
